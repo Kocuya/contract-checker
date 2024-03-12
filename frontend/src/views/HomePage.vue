@@ -23,12 +23,17 @@ export default {
     new_add() {
       this.$router.push('/login');
       console.log('追加処理');
+      console.log('デバッグでloginに飛んでいます')
     }
   }
 }
 </script>
 
 <style>
+/* 
+これはassetsフォルダのcolors.cssファイルからインポートしています
+呼び出しはvar()関数を使用してください 
+*/
 @import "@/assets/colors.css";
 #home {
   display: flex;
@@ -49,10 +54,10 @@ export default {
 }
 
 .content {
-  margin-top: 100px; /* バーの高さと追加のスペースを考慮 */
+  margin-top: 100px;
   width: 90%;
   margin-left: auto;
-  margin-right: auto; /* 中央揃え */
+  margin-right: auto;
 }
 
 .rounded-button {
