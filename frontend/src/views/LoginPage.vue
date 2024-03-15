@@ -9,11 +9,11 @@
             <div class="text-field-title">
                 会社名
             </div>
-            <input type="text" name="username" class="text-field">
+            <input type="text" name="companyname" class="text-field" v-model="companyName">
             <div class="text-field-title">
                 パスワード
             </div>
-            <input type="text" name="username" class="text-field">
+            <input type="password" name="password" class="text-field" v-model="password">
     </div>
     <div id="button-box-login">
         <button v-on:click="login" id="botton-login">ログイン</button>
@@ -27,9 +27,17 @@ export default {
     components: {
         TheHeaderLogin
     },
+    data() {
+        return {
+            companyName: '',
+            password: ''
+        }
+    },
     methods: {
         login() {
             console.log('ログイン処理')
+            console.log('会社名:', this.companyName);
+            console.log('パスワード:', this.password);
         }
     }
 }
