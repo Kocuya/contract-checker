@@ -14,18 +14,27 @@
 </template>
   
 <script>
+import axios from 'axios'
+
 export default {
   name: 'ContractListPage',
   data() {
     return {
-      contracts: [
-        { type: '贈与契約', title: '株式会社DEF', date: '2024/01/21' },
-        { type: '消費貸借契約', title: '株式会社ABC', date: '2023/12/12' },
-        { type: '使用貸借契約', title: '相手企業GHI', date: '2023/12/02' },
-        { type: '賃貸借契約', title: '相手企業サシス', date: '2023/11/18' },
-        { type: '贈与借契約', title: '相手企業カキク', date: '2023/10/25' },
-        { type: '贈与借契約', title: '相手企業〇〇', date: '2023/10/25' },
-      ]
+      contracts: []
+    }
+  },
+  created() {
+    this.fetchContracts()
+  },
+  methods: {
+    fetchContracts() {
+      axios.get('http://127.0.0.1:5000/contracts/list')
+        .then(response => {
+          this.contracts = response.data
+        })
+        .catch(error => {
+          console.error("データの取得に失敗しました。", error)
+        })
     }
   }
 }
