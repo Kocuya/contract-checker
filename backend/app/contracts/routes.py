@@ -27,8 +27,8 @@ def list_contracts():
     # この部分には契約書リストを取得するロジックを実装します
     # ここでは、デモのために仮のデータを返すようにします
     contracts_demo = [
-        {"type": "賃貸契約", "title": "契約書A", "date": "2023-01-01"},
-        {"type": "借用契約", "title": "契約書B", "date": "2023-02-01"},
-        {"type": "テスト契約", "title": "契約書C", "date": "2023-03-01"}
+        {"type": "賃貸契約", "title": "契約書A", "date": "2023/01/01"},
+        {"type": "借用契約", "title": "契約書B", "date": "2023/02/01"},
+        {"type": "テスト契約", "title": "契約書C", "date": "2023/03/01"}
     ]
     return jsonify(contracts_demo), 200
