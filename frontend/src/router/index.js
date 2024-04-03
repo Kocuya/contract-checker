@@ -19,8 +19,8 @@ const routes = [
         store.commit('setShowUploadPage', true);
         next();
       },
-      component: import("@/views/HomePage.vue"),
-    },
+      component: () => import("@/views/HomePage.vue"),
+    }
     // 他のルートをここに追加
 ];
 

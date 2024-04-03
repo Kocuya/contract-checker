@@ -24,8 +24,8 @@ export default {
   },
   data() {
     return {
-      showUploadPage: false
-    };
+      showUploadPage: false,
+    }
   },
   watch: {
     '$route'(to) {

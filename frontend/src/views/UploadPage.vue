@@ -5,19 +5,29 @@
             <button v-on:click="test">push to home</button>
         </div>
         <div id="upload-label">
-            <DragAndDrop />
+            <DragAndDrop v-if="showUpload"/>
+            <FileView v-if="showFileView"/>
         </div>
     </div>
 </template>
 
 <script>
-import DragAndDrop from '../components/UploadDragDrop.vue';
+import DragAndDrop from '../components/UlDragDrop.vue';
+import FileView from '../components/UlView.vue';
+
+import { mapState, mapMutations } from 'vuex'
+
 export default {
     name: 'UploadPage',
     components: {
         DragAndDrop,
+        FileView,
+    },
+    computed: {
+        ...mapState(['showUpload', 'showFileView'])
     },
     methods: {
+        ...mapMutations(['setShowUpload', 'setShowFileView']),
         test() {
             this.$router.push('/')
             console.log('ホームに戻る(test)')
