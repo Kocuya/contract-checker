@@ -22,7 +22,7 @@ export default {
   background-color: white; /* 背景色 */
   color: var(--project-red); /* テキストの色 */
   padding: 10px 0;
-  border-bottom: 2px solid var(--line-color); /* 下に線を追加 */
+  border-bottom: 1px solid var(--line-color); /* 下に線を追加 */
   text-align: left;
   padding-left: 22px;
   display: flex;

@@ -77,7 +77,7 @@ export default {
     height: 28px;
     font-size: 28;
     font-weight: 200;
-    border: 2px solid var(--line-color);
+    border: 1px solid var(--line-color);
     border-radius: 4px;
     margin-bottom: 30px;
     padding-left: 10px;
@@ -91,7 +91,7 @@ export default {
   font-size: 14px;
   background-color: white;
   width: 50%;
-  border: 2px var(--line-color);
+  border: 1px var(--line-color);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   padding-top: 30px;

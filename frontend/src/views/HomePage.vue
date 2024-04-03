@@ -8,22 +8,34 @@
         </div>
     </div>
     <ContractList />
+    <Upload v-if="showUploadPage" />
 </template>
 
 <script>
 import TheHeader from '../components/TheHeader.vue'
 import ContractList from '../components/ContractList.vue'
+import Upload from '../views/UploadPage.vue'
 export default {
   name: 'HomePage',
   components: {
     TheHeader,
-    ContractList
+    ContractList,
+    Upload
+  },
+  data() {
+    return {
+      showUploadPage: false
+    };
+  },
+  watch: {
+    '$route'(to) {
+      this.showUploadPage = to.path === '/upload';
+    }
   },
   methods: {
     new_add() {
-      this.$router.push('/login');
-      console.log('追加処理');
-      console.log('デバッグでloginに飛んでいます')
+      this.$router.push('/upload');
+      console.log('遷移: upload');
     }
   }
 }
@@ -31,7 +43,7 @@ export default {
 
 <style>
 /* 
-これはassetsフォルダのcolors.cssファイルからインポートしています
+これはassetsフォルダのcolors.cssファイルからインポートしています ディレクトリ:src/assets/colors.css
 呼び出しはvar()関数を使用してください 
 */
 @import "@/assets/colors.css";
@@ -58,19 +70,5 @@ export default {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-}
-
-.rounded-button {
-  background-color: var(--project-red);
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 18px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.3s;
-}
-.rounded-button:hover {
-  background-color: var(--project-red-hover);
 }
 </style>

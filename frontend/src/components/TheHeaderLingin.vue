@@ -21,7 +21,7 @@ export default {
   background-color: white;
   color: var(--project-red);
   padding: 10px 0;
-  border-bottom: 2px solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
   display: flex;
   justify-content: center;
   align-items: center;

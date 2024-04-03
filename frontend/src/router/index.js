@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import store from '../store';
 
 const routes = [
     {
@@ -10,7 +11,16 @@ const routes = [
       path: "/login",
       name: "Login",
       component: () => import("@/views/LoginPage.vue"),
-    }
+    },
+    {
+      path: "/upload",
+      name: "Upload",
+      beforeEnter: (to, from, next) => {
+        store.commit('setShowUploadPage', true);
+        next();
+      },
+      component: import("@/views/HomePage.vue"),
+    },
     // 他のルートをここに追加
 ];
 
