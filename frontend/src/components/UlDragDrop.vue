@@ -11,7 +11,7 @@
         <div id="test" v-if="showUploading">test</div>
         <div class="upload-buttons-column">
             <button class="grey-rb" v-on:click="upload_cancel">キャンセル</button>
-            <button class="rounded-button" v-on:click="upload_start">開始</button>
+            <button class="rounded-button" :disabled="!showUploading" v-on:click="upload_start">開始</button>
         </div>
     </div>
 </template>
@@ -21,6 +21,11 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
     name: 'UploadDrag',
+    data() {
+        return {
+            isButtonEnabled: false
+        }
+    },
     computed: {
         ...mapState(['showUploading']),
     },
@@ -31,13 +36,14 @@ export default {
             console.log('テストで次に進みます');
         },
         upload_cancel() {
+            this.$store.commit('setShowUploading', false);
             this.$router.push('/')
             console.log('戻る')
         },
         upload_start() {
             this.$store.commit('setShowUpload', false);
             this.$store.commit('setShowUploading', false);
-            this.$store.commit('setShowFileView', true)
+            this.$store.commit('setShowFileView', true);
         }
     }
 }

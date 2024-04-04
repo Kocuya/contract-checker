@@ -2,7 +2,7 @@
     <div class="upload-outer">
         <div id="upload-box">
             <div id="file-view">
-                <iframe src="/Users/Koch/Desktop/test.pdf" width="100%" height="100%" frameborder="0"></iframe>
+                <iframe :src="fileLocation" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
         <div class="upload-buttons-column" v-if="!showAlerts">
@@ -22,6 +22,7 @@ export default {
     name: "FileView",
     data() {
         return {
+            fileLocation: "",
         }
     },
     computed: {
